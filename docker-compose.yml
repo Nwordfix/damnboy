@@ -1,0 +1,18 @@
+version: '3'
+services:
+  php-fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        GOODUSER: o2181579
+        UID: */1047230935 1000
+        MAIL: o2181579@univ-orleans.fr
+        NOM: "Lecoz"
+    container_name: my-good-container
+    volumes:
+    - ./dev:/var/www/html
+    ports:
+    - "5000:8000"
+    environment:
+      PHP_IDE_CONFIG: serverName=toto
